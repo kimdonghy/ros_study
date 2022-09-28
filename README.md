@@ -6,7 +6,7 @@ my first ros study
 - monkey
 
 
-## 2022 9월 28일 수
+-2022 9월 28일 수
 - topic_tutorial 패키지 생성
 - my_publisher, my_subscriber 노드생성
 -빌드
@@ -21,15 +21,15 @@ my first ros study
 ### roscore
 - ROS Master를 실행한다
 -노드를 켜기 전에 가장먼저실행
-'''
+```
     bash
      roscore
-'''
+```
 
 ### rosrun
 -노드를 실행한다.
 -rosrun 패키지이름 노드이름
-'''
+```
     bash
      rosrun <패키지이름> <노드이름>
-'''
+```

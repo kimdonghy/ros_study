@@ -24,6 +24,14 @@ my first ros study
 
 - 과제 1번
 
+### 2022년 9월 29일
+- [msg_tutorial](./msgtutorial)
+    - msg_tutorial 패키지 생성
+    - msg 디렉토리에 Mymsg.msg 생성
+    - msg_publisher, msg_subscsriber, py_msg_pub.py, py_msg_sub.py 노드생성
+    -빌드
+    -실행
+
 ## ROS명령어
 ### roscore
 - ROS Master를 실행한다
@@ -52,3 +60,10 @@ my first ros study
     catkin_create_pkg topic_tutorial roscpp
     rospy std_msgs
 ```
+
+## msg 만드는법
+1. 패키지 안에 msg 디렉토리를 만든다.
+2. .msg 확장자의 파일을 만든다.
+3. 안에 내용을 작성한다.
+4. CMakelists.txt 에서 설정한다.
+5. 빌드시 생성된다.

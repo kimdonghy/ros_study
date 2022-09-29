@@ -29,6 +29,6 @@ def msg_talker():
 
 if __name__ == "__main__":
     try:
-        my_talker()
+        msg_talker()
     except rospy.ROSInterruptException:
         pass

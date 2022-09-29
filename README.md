@@ -32,6 +32,11 @@ my first ros study
     -빌드
     -실행
 
+- [service_tutorial](./service_tutorial)
+    -sevice_tutorial 패키지 생성
+    - srv 디렉토리에 AddtwoInst.srv생성
+    - my_server, my_client, py_server, py_client생성
+
 ## ROS명령어
 ### roscore
 - ROS Master를 실행한다
@@ -67,3 +72,7 @@ my first ros study
 3. 안에 내용을 작성한다.
 4. CMakelists.txt 에서 설정한다.
 5. 빌드시 생성된다.
+
+### srv 파일은 ---을 기준으로 나뉜다.
+- 위쪽은 reuqest, 서비스 클라이언트가 요청을 보낼때 사용한다.
+-아래쪽은 response, 서비스 서버가 응답을 보낼때 사용.

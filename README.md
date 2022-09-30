@@ -22,7 +22,6 @@ my first ros study
 - 빌드
 - 실행
 
-- 과제 1번
 
 ### 2022년 9월 29일
 - [msg_tutorial](./msgtutorial)
@@ -36,6 +35,45 @@ my first ros study
     -sevice_tutorial 패키지 생성
     - srv 디렉토리에 AddtwoInst.srv생성
     - my_server, my_client, py_server, py_client생성
+
+
+### 2022년 9월 30일
+- [과제 2 yh_star](./yh_star)
+- for문 활용해서 별 찍기
+    - yh_star 패키지 생성
+    - yh_star_pub, yh_star_sub, yh_star_pub,
+    yh_star_sub.py 노드 생성
+    - 빌드
+    - 실행
+
+- [과제 3 yh_service](./yh_service)
+    - yh_service 패키지 생성
+    - yh_server, yh_client, yh_server.py,
+    노드생성
+    - 빌드
+    - 실행
+
+
+------------------------------------------------------
+## 패키지 만들기
+1. cs를 들어간다
+2. ros_sutdy에 들어간다
+3. catkin_cerate_pkg (패키지이름) roscpp rospy
+
+catkin_create_pkg ,패키지이름, roscpp rospy std_msgs message_generation
+
+## msg 파일 만들기
+1. msg_튜토리얼에다가
+
+2. msg 파일만들고
+
+3. Mymsg.msg 만들기
+
+## 파이썬 권한주기
+
+- chmod +x src/ros_study/msg_tutorial/scripts/*
+
+
 
 ## ROS명령어
 ### roscore
@@ -76,3 +114,25 @@ my first ros study
 ### srv 파일은 ---을 기준으로 나뉜다.
 - 위쪽은 reuqest, 서비스 클라이언트가 요청을 보낼때 사용한다.
 -아래쪽은 response, 서비스 서버가 응답을 보낼때 사용.
+
+## 과제 2
+1. yh_star 패키지를 만들고 publisher 노드 1개, subscriber 노드 1개를 만든다.
+
+2. publisher 노드의 이름은 yh_star_pub이고, yh_star_topic 이라는 이름의 토픽으로 0.5초에 한번 메시지를 publish 한다.
+
+3. subscriber 노드의 이름은 yh_star_sub이고, ys_star_pub이 publish하는 메시지를 subscribe한다.
+
+4. yh_star_pub 은 시간과 정수를 YhStarMsg 메시지에담아 publish한다
+
+5. yh_star_sub은 subscribe한 메시지 안의 정수에 따라 print() 함수로 별을 출력한다 (파이썬이면 print)
+
+## 과제 3
+
+1. yh_service 패키지를 만들고 service server 노드 1개, service client 노드 1개를 만든다.
+    
+2. service server 노드의 이름은 yh_server이고, 요청을 받아 request 안의 정수 a, b를 곱한 값을 response의 result에 넣어 응답한다.
+
+3. service client 노드의 이름은 yh_client이고, request 안에 정수 a, b를 넣어 요청을 보내고 결과값을 출력한다.
+
+4. 정수 a, b는 service client 노드 실행 시 command line을 통해 입력받는다.
+    service 이름은 multiply, service 파일 이름은 YhSrv로 한다.

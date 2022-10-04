@@ -54,11 +54,24 @@ my first ros study
     - 실행
 
 
+### 2022년 10월 04일
+### [gooday_tutoial](./param_tutorial)
+- goodday_tutorial 패키지 생성
+- calculate_server, calculate client, pp,py
+노드생성
+- 빌드
+- 실행
+- [파라미터 서버 활용](#parameter-server)
+
+- 과제 4
+- 과제 5
+- 과제 6
+
 ------------------------------------------------------
 ## 패키지 만들기
 1. cs를 들어간다
 2. ros_sutdy에 들어간다
-3. catkin_cerate_pkg (패키지이름) roscpp rospy
+3. catkin_create_pkg (패키지이름) roscpp rospy
 
 catkin_create_pkg ,패키지이름, roscpp rospy std_msgs message_generation
 
@@ -115,6 +128,24 @@ catkin_create_pkg ,패키지이름, roscpp rospy std_msgs message_generation
 - 위쪽은 reuqest, 서비스 클라이언트가 요청을 보낼때 사용한다.
 -아래쪽은 response, 서비스 서버가 응답을 보낼때 사용.
 
+
+### Parameter Server
+- ROS Master에서 실행되고, 변수들을 담고 있는 서버
+- ros::setParam(), ros::getParam(), rospy.set_param(), rospy.get_param() 등의 함수로 사용
+- command line 에서 rosparam으로 사용가능
+-rosParam list
+    - 파라미터에 있는 리스트들 모두 출력
+- rosparam get (파라미터 이름)
+    - 파라미터의 값을 출력함
+```bash
+why361912@naver.com:~$ rosparam get <파라미터 이름>
+```
+- rosparam set <파라미터 이름> [파라미터 값]
+    - 파라미터의 값을 지정함
+```bash
+why361912@naver.com:~$ rosparam set <파라미터 이름> [파라미터 값]
+```
+
 ## 과제 2
 1. yh_star 패키지를 만들고 publisher 노드 1개, subscriber 노드 1개를 만든다.
 
@@ -136,3 +167,16 @@ catkin_create_pkg ,패키지이름, roscpp rospy std_msgs message_generation
 
 4. 정수 a, b는 service client 노드 실행 시 command line을 통해 입력받는다.
     service 이름은 multiply, service 파일 이름은 YhSrv로 한다.
+
+
+## 과제 4
+
+1. yh_dual 패키지를 만들고 publisher 노드 1개, subscriber 노드 2개를 만든다
+
+2. publisher 노드의 이름은 yh_dual_pub이고 yh_dual_topic 이라는 토픽으로 YhDual 메시지에 publish한 시간과 정수를 담아 publish한다.
+
+3. subscriber 노드 1의 이름은 yh_aual_time 이고 yh_dual_topic 토픽의 YhDual 메시지를 subscribe하여 시간 정보를 출력한다.
+
+4. subscriber 노드의 2의 이름은 yh_dual_int 이고 yh_dual_topic 토픽의 YhDual 메시지를 subscribe하여 정수 정보를 출력한다.
+
+5. yh_dual_pub은 메시지를 0.125초마다 publish하고, publish할때마다 정수를 1씩 증가시킨다.

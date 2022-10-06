@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(goodday_tutorial)
+project(yh_turtle)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,10 +8,11 @@ project(goodday_tutorial)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  message_generation
+  geometry_msgs
   roscpp
   rospy
-  std_msgs
+  turtlesim
+  std_srvs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -50,14 +51,16 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 # add_message_files(
 #   FILES
-#   Calculate.srv
+#   Message1.msg
+#   Message2.msg
 # )
 
 ## Generate services in the 'srv' folder
-add_service_files(
-  FILES
-  Calculate.srv
-)
+# add_service_files(
+#   FILES
+#   Service1.srv
+#   Service2.srv
+# )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -67,10 +70,10 @@ add_service_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-)
+# generate_messages(
+#   DEPENDENCIES
+#   geometry_msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -103,8 +106,8 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
- LIBRARIES goodday_tutorial
-#  CATKIN_DEPENDS message_generation roscpp rospy std_msgs
+#  LIBRARIES yh_turtle
+#  CATKIN_DEPENDS geometry_msgs roscpp rospy tutlesim
 #  DEPENDS system_lib
 )
 
@@ -121,7 +124,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/goodday_tutorial.cpp
+#   src/${PROJECT_NAME}/yh_turtle.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -132,8 +135,10 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(calculate_server src/calculate_server.cpp)
-add_executable(calculate_client src/calculate_client.cpp)
+add_executable(turtle_patrol src/turtle_patrol.cpp)
+add_executable(turtle_keyboard src/turtle_keyboard.cpp)
+add_executable(turtle_clear src/turtle_clear.cpp)
+add_executable(turtle_keyboard_clear src/turtle_keyboard_clear.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -143,14 +148,22 @@ add_executable(calculate_client src/calculate_client.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(calculate_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(calculate_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(turtle_patrol ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(turtle_keyboard ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(turtle_clear ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(turtle_keyboard_clear ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(calculate_client
+target_link_libraries(turtle_patrol
   ${catkin_LIBRARIES}
 )
-target_link_libraries(calculate_server
+target_link_libraries(turtle_keyboard
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(turtle_clear
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(turtle_keyboard_clear
   ${catkin_LIBRARIES}
 )
 
@@ -164,7 +177,7 @@ target_link_libraries(calculate_server
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  scripts/calculate_server.py scripts/calculate_client.py
+  scripts/turtle_patrol.py scripts/turtle_keyboard.py scripts/turtle_clear.py scripts/turtle_keyboard_clear.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
@@ -201,7 +214,7 @@ catkin_install_python(PROGRAMS
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_goodday_tutorial.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_yh_turtle.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

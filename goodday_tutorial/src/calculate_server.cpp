@@ -53,5 +53,4 @@ int main(int argc, char** argv)
 
 
     return 0;
-}    req.b = int(sys.argv[2])
-    req.b = int(sys.argv[2])
+}    

@@ -67,6 +67,41 @@ my first ros study
 - 과제 5
 - 과제 6
 
+## 2022년 10월 06일
+### [yh_turtle](./yh_turtle)
+- yh_turtle 패키지 생성
+- turtle_patrol, turtle_keyboard, turtle_clear,
+turtle_keyboard_clear, turtle_ptrol.py, turtle_keyboard.py, turtle_clear.py, turtle_keyboard_clear.py 노드 생성
+- 빌드
+- 실행
+
+### roslaubch 
+[roslaunch]
+
+- roscore와 launch 파일에 있는 노드들을 실행시키는 명령
+- launch 파일은 `패키지 디렉토리/launch`에 만든다.
+- roslaunch 실행
+```bash
+$ roslaunch <패키지이름> <런치파이름>
+```
+
+- launch 파일은 <launch></launch> 태그사이에 내용을 입력.
+- node 태그는 패키지 이름, 노드 타입, 노드 이름 입력한다.
+- param 태그는 파라미터 이름, 값, 타입을 입력한다.
+
+1. 거북이 키기 :rosrun turtlesim turtlesin_node
+
+2. 키보드: rosrun teleop_twist_이름(keyboard) teleop_twist_ 이름(keyboard)
+
+3. catkin_create_pkg 이름 roscpp rospy geometry_msgs turtlesim std_srvs
+
+4. tutle_clear 만들어서 쓰고 지워보기
+
+
+
+
+### elteop_twist_keyboard 패키지
+- 키보드 입력을 /cmd_vel 토픽의 geometry_msgs/Twist 메시지로 publish 하는 노드
 ------------------------------------------------------
 ## 패키지 만들기
 1. cs를 들어간다
@@ -144,6 +179,12 @@ why361912@naver.com:~$ rosparam get <파라미터 이름>
     - 파라미터의 값을 지정함
 ```bash
 why361912@naver.com:~$ rosparam set <파라미터 이름> [파라미터 값]
+```
+
+### elteop_twist_keyboard 패키지
+- 키보드 입력을 /cmd_vel 토픽의 geometry_msgs/Twist 메시지로 publish 하는 노드
+```bash
+$ sudo apt install ros-melodic-teleop-twist-keyboard
 ```
 
 ## 과제 2

@@ -90,7 +90,7 @@ $ roslaunch <패키지이름> <런치파이름>
 - node 태그는 패키지 이름, 노드 타입, 노드 이름 입력한다.
 - param 태그는 파라미터 이름, 값, 타입을 입력한다.
 
-1. 거북이 키기 :rosrun turtlesim turtlesin_node
+1. 거북이 키기 :rosrun turtlesim turtlesim_node
 
 2. 키보드: rosrun teleop_twist_이름(keyboard) teleop_twist_ 이름(keyboard)
 
@@ -103,6 +103,13 @@ $ roslaunch <패키지이름> <런치파이름>
 
 ### elteop_twist_keyboard 패키지
 - 키보드 입력을 /cmd_vel 토픽의 geometry_msgs/Twist 메시지로 publish 하는 노드
+
+
+### 2022년 10월 07일
+
+- 
+
+
 ------------------------------------------------------
 ## 패키지 만들기
 1. cs를 들어간다
@@ -222,3 +229,12 @@ $ sudo apt install ros-melodic-teleop-twist-keyboard
 4. subscriber 노드의 2의 이름은 yh_dual_int 이고 yh_dual_topic 토픽의 YhDual 메시지를 subscribe하여 정수 정보를 출력한다.
 
 5. yh_dual_pub은 메시지를 0.125초마다 publish하고, publish할때마다 정수를 1씩 증가시킨다.
+
+
+## 문제 1
+
+1. yh_turtle 패키지에 yh_turtle_circle 노드를 생성한다.
+
+2. yh_turtle_circle 노드는 turtlesim 패키지의 turtlesim_node 거북이를 원형으로 움직이도록 하는 노드로 만든다.
+
+3. yh_turtle_circle 노드는 반지름을 지정할 수 있도록 한다
